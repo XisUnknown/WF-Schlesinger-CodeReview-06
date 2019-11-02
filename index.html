@@ -31,11 +31,11 @@
     </nav>
     <div id="container" class="container"></div>
     <h1>Locations</h1>
-    <div id="locationdeck" class="card-deck"></div>
+    <div id="locationdeck" class="card-group"></div>
     <h1>Restaurants</h1>
-    <div id="restaurantsdeck" class="card-deck"></div>
+    <div id="restaurantsdeck" class="card-group"></div>
     <h1>Events</h1>
-    <div id="eventdeck" class="card-deck"></div>
+    <div id="eventdeck" class="card-group"></div>
     </div>
     <div class="input-group mb-3">
         <select class="custom-select" id="inputGroupSelect02">
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div class="input-group mb-3" style="display: none;" id="type">
-            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" id="textInputType">
+            <input type="text" class="form-control" placeholder="Type" aria-label="Type" aria-describedby="basic-addon2" id="textInputType">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon1">Type</span>
             </div>
@@ -85,6 +85,13 @@
             <span class="input-group-text" id="basic-addon2">Telephone</span>
         </div>
     </div>
+    <div class="input-group mb-3" style="display: none;" id="url">
+            <input type="text" class="form-control" placeholder="url" aria-label="url"
+                aria-describedby="basic-addon2" id="textInputURL">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">URL</span>
+            </div>
+        </div>
     <div class="input-group mb-3" style="display: none;" id="date">
         <input type="text" class="form-control" placeholder="Date" aria-label="Date" aria-describedby="basic-addon2" id="textInputDate">
         <div class="input-group-append">
@@ -109,86 +116,96 @@
     <button type="button" class="btn btn-outline-primary" style="display: none;" id="btn">Primary</button>
     <script>
         $(document).ready(function () {
-            var objArr = [];
-            objArr.push(new LocationClass("test", "test", 5, "test", "test"));
-            objArr.push(new LocationClass("test", "test", 5, "test", "test"));
-            objArr.push(new LocationClass("test", "test", 5, "test", "test"));
-            objArr.push(new RestaurantClass("test", "test", 5, "test", "test", "test", "test", "test", "test"));
-            objArr.push(new EventClass("test", "test", 5, "test", "test", "test", "test", "test", "test"));
-            objArr.forEach(element => {
-                element.display();
-            });
-            $('#inputGroupSelect02').click(function(){
-                switch(this.value){
-                    case "location": 
-                        $('#name').css("display","flex");
-                        $('#type').css("display","none");
-                        $('#adress').css("display","flex");
-                        $('#zip').css("display","flex");
-                        $('#city').css("display","flex");
-                        $('#file').css("display","flex");
-                        $('#btn').css("display","flex");
-                        $('#telephone').css("display","none");
-                        $('#date').css("display","none");
-                        $('#time').css("display","none");
-                        break;
-                        case "restaurants": 
-                        $('#name').css("display","flex");
-                        $('#type').css("display","flex");
-                        $('#adress').css("display","flex");
-                        $('#zip').css("display","flex");
-                        $('#city').css("display","flex");
-                        $('#file').css("display","flex");
-                        $('#btn').css("display","flex");
-                        $('#telephone').css("display","flex");
-                        $('#date').css("display","none");
-                        $('#time').css("display","none");
-                        break;
-                        case "events": 
-                        $('#name').css("display","flex");
-                        $('#adress').css("display","flex");
-                        $('#type').css("display","none");
-                        $('#zip').css("display","flex");
-                        $('#city').css("display","flex");
-                        $('#file').css("display","flex");
-                        $('#btn').css("display","flex");
-                        $('#telephone').css("display","flex");
-                        $('#date').css("display","flex");
-                        $('#time').css("display","flex");
-                        break; 
-                        case "default":
-                        $('#name').css("display","none");
-                        $('#adress').css("display","none");
-                        $('#type').css("display","none");
-                        $('#zip').css("display","none");
-                        $('#city').css("display","none");
-                        $('#file').css("display","none");
-                        $('#btn').css("display","none");
-                        $('#telephone').css("display","none");
-                        $('#url').css("display","none");
-                        $('#date').css("display","none");
-                        $('#time').css("display","none");
-                        break;
-                }
+	var objArr = [];
+	objArr.push(new LocationClass("CodeFactory", "Kettenbrückengasse 23", 1050, "Wien", "./img/code1.jpg"));
+	objArr.push(new LocationClass("Htl Ottakring", "Thaliastraße 125", 1160, "Wien", "./img/HTL.png"));
+	objArr.push(new LocationClass("FH Technikum Wien", "Höchstädtpl. 6", 1200, "Wien", "./img/FH.jpg"));
+	objArr.push(new LocationClass("TU Wien", "Karlsplatz 13", 1040, "Wien", "./img/TU.jpg"));
+	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
+	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
+	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
+	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00", "15€"));
+	objArr.forEach(element => {
+			element.display();
+	});
+	$('#inputGroupSelect02').click(function(){
+			switch(this.value){
+					case "location": 
+							$('#name').css("display","flex");
+							$('#type').css("display","none");
+							$('#adress').css("display","flex");
+							$('#zip').css("display","flex");
+							$('#city').css("display","flex");
+							$('#file').css("display","flex");
+							$('#btn').css("display","flex");
+							$('#telephone').css("display","none");
+							$('#url').css("display","none");
+							$('#date').css("display","none");
+							$('#time').css("display","none");
+							break;
+					case "restaurants": 
+							$('#name').css("display","flex");
+							$('#type').css("display","flex");
+							$('#adress').css("display","flex");
+							$('#zip').css("display","flex");
+							$('#city').css("display","flex");
+							$('#file').css("display","flex");
+							$('#btn').css("display","flex");
+							$('#telephone').css("display","flex");
+							$('#url').css("display","flex");
+							$('#date').css("display","none");
+							$('#time').css("display","none");
+							break;
+					case "events": 
+							$('#name').css("display","flex");
+							$('#adress').css("display","flex");
+							$('#type').css("display","none");
+							$('#zip').css("display","flex");
+							$('#city').css("display","flex");
+							$('#file').css("display","flex");
+							$('#btn').css("display","flex");
+							$('#telephone').css("display","flex");
+							$('#url').css("display","flex");
+							$('#date').css("display","flex");
+							$('#time').css("display","flex");
+							break; 
+					case "default":
+							$('#name').css("display","none");
+							$('#adress').css("display","none");
+							$('#type').css("display","none");
+							$('#zip').css("display","none");
+							$('#city').css("display","none");
+							$('#file').css("display","none");
+							$('#btn').css("display","none");
+							$('#telephone').css("display","none");
+							$('#url').css("display","none");
+							$('#date').css("display","none");
+							$('#time').css("display","none");
+							break;
+			}
 
-            });
-            $('#btn').click(function(){ 
-                switch($('#inputGroupSelect02').val()){
-                    case "location": 
-                    objArr.push(new LocationClass($('#textInputName').val(), $('#textInputAdress').val(), Number($('#textInputZip').val()), $('#textInputCity').val()), $('#inputGroupFile02').val());
-                    objArr[objArr.length-1].display();                    
-                    break;
-                    case "restaurants": 
-                    objArr.push(new RestaurantClass($('#textInputName').val(), $('#textInputType').val(), $('#textInputAdress').val(), Number($('#textInputZip').val()), $('#textInputCity').val(),$('#inputGroupFile02').val(), $('#textInputTelephone').val()));
-                    objArr[objArr.length-1].display();                    
-                    break;
-                    case "events": 
-                    objArr.push(new EventClass($('#textInput1').val(), $('#textInput2').val(), Number($('#textInput3').val()), $('#textInput4').val()));
-                    objArr[objArr.length-1].display();                    
-                    break;  
-                }
-            });
-        });
+	});
+	$('#btn').click(function(){ 
+			switch($('#inputGroupSelect02').val()){
+					case "location": 
+					objArr.push(new LocationClass($('#textInputName').val(), $('#textInputAdress').val(), Number($('#textInputZip').val()), $('#textInputCity').val(), $('#inputGroupFile02').val().replace(/C:\\fakepath\\/, './img/')));
+					objArr[objArr.length-1].display();                    
+					break;
+					case "restaurants":
+					objArr.push(new RestaurantClass($('#textInputName').val(), $('#textInputType').val(), $('#textInputAdress').val(), Number($('#textInputZip').val()), $('#textInputCity').val(), $('#inputGroupFile02').val().replace(/C:\\fakepath\\/, './img/'), $('#textInputTelephone').val(),$('#textInputURL').val()));
+					objArr[objArr.length-1].display();                    
+					break;
+					case "events": 
+					objArr.push(new EventClass($('#textInputName').val(), $('#textInputType').val(), $('#textInputAdress').val(), Number($('#textInputZip').val()), $('#textInputCity').val(), $('#inputGroupFile02').val(),$('#textInputURL').val(),$('#textInputPrice').val(),$('#textInputDate').val(),$('#textInputDate').val()));
+					objArr[objArr.length-1].display();                    
+					break;  
+			}
+	});
+});
     </script>
 </body>
 

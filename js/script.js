@@ -27,7 +27,7 @@ var LocationClass = /** @class */ (function () {
 }());
 var RestaurantClass = /** @class */ (function (_super) {
     __extends(RestaurantClass, _super);
-    function RestaurantClass(name, adress, zip, city, img, type, webURL, telephone) {
+    function RestaurantClass(name, type, adress, zip, city, img, telephone, webURL) {
         var _this = _super.call(this, name, adress, zip, city, img) || this;
         _this.type = type;
         _this.webURL = webURL;
@@ -35,13 +35,13 @@ var RestaurantClass = /** @class */ (function (_super) {
         return _this;
     }
     RestaurantClass.prototype.display = function () {
-        $('#restaurantsdeck').append("\n\t\t\t<div class=\"card\">\n\t\t\t\t<img src=" + this.img + " class=\"card-img-top\" alt=\"...\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<h3 class=\"card-title\">" + this.name + "</h3>\n\t\t\t\t\t<h1 class=\"card-text\">" + this.type + "</h3>\n\t\t\t\t\t<p class=\"card-text\">adress: " + this.adress + "</p>\n\t\t\t\t\t<p class=\"card-text\">zip: " + this.zip + "</p>\n\t\t\t\t\t<p class=\"card-text\">city: " + this.city + "</p>\n\t\t\t\t\t<p class=\"card-text\">telephone: " + this.city + "</p>\n\t\t\t\t\t<a href=\"" + this.webURL + "\" class=\"card-link\">Website</a>\n\t\t\t\t</div>\n\t\t\t</div>\n    ");
+        $('#restaurantsdeck').append("\n\t\t\t<div class=\"card\">\n\t\t\t\t<img src=" + this.img + " class=\"card-img-top\" alt=\"...\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<h3 class=\"card-title\">" + this.name + "</h3>\n\t\t\t\t\t<h1 class=\"card-text\">" + this.type + "</h3>\n\t\t\t\t\t<p class=\"card-text\">adress: " + this.adress + "</p>\n\t\t\t\t\t<p class=\"card-text\">zip: " + this.zip + "</p>\n\t\t\t\t\t<p class=\"card-text\">city: " + this.city + "</p>\n\t\t\t\t\t<p class=\"card-text\">telephone: " + this.telephone + "</p>\n\t\t\t\t\t<a href=\"" + this.webURL + "\" class=\"card-link\">Website</a>\n\t\t\t\t</div>\n\t\t\t</div>\n    ");
     };
     return RestaurantClass;
 }(LocationClass));
 var EventClass = /** @class */ (function (_super) {
     __extends(EventClass, _super);
-    function EventClass(name, adress, zip, city, img, type, webURL, price, date, time) {
+    function EventClass(name, type, adress, zip, city, img, webURL, price, date, time) {
         var _this = _super.call(this, name, adress, zip, city, img) || this;
         _this.type = type;
         _this.webURL = webURL;
@@ -51,7 +51,7 @@ var EventClass = /** @class */ (function (_super) {
         return _this;
     }
     EventClass.prototype.display = function () {
-        $('#eventdeck').append("\n\t\t\t<div class=\"card\">\n\t\t\t\t<img src=" + this.img + " class=\"card-img-top\" alt=\"...\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<h3 class=\"card-title\">" + this.name + "</h3>\n\t\t\t\t\t<h1 class=\"card-text\">" + this.type + "</h3>\n\t\t\t\t\t<p class=\"card-text\">adress: " + this.adress + "</p>\n\t\t\t\t\t<p class=\"card-text\">zip: " + this.zip + "</p>\n\t\t\t\t\t<p class=\"card-text\">city: " + this.city + "</p>\n\t\t\t\t\t<p class=\"card-text\">telephone: " + this.city + "</p>\n\t\t\t\t\t<a href=\"" + this.webURL + "\" class=\"card-link\">Website</a>\n\t\t\t\t</div>\n\t\t\t</div>\n    ");
+        $('#eventdeck').append("\n\t\t\t<div class=\"card\">\n\t\t\t\t<img src=" + this.img + " class=\"card-img-top\" alt=\"...\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<h3 class=\"card-title\">" + this.name + "</h3>\n\t\t\t\t\t<h1 class=\"card-text\">" + this.type + "</h3>\n\t\t\t\t\t<p class=\"card-text\">adress: " + this.adress + "</p>\n\t\t\t\t\t<p class=\"card-text\">zip: " + this.zip + "</p>\n\t\t\t\t\t<p class=\"card-text\">city: " + this.city + "</p>\n\t\t\t\t\t<a href=\"" + this.webURL + "\" class=\"card-link\">Website</a>\n\t\t\t\t</div>\n\t\t\t</div>\n    ");
     };
     return EventClass;
 }(LocationClass));

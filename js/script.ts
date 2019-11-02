@@ -14,7 +14,6 @@ class LocationClass {
 	}
 	display(): void {
 		$('#locationdeck').append(`
-			
 			<div class="card">
   			<img src=${this.img} class="card-img-top" alt="...">
   			<div class="card-body">
@@ -28,22 +27,21 @@ class LocationClass {
 	}
 }
 class RestaurantClass extends LocationClass {
-	nameRestaurant: string;
+	//nameRestaurant: string;
 	type: string;
 	webURL: string;
 	telephone: string;
 	constructor(
 		name: string,
+		type: string,
 		adress: string,
 		zip: number,
 		city: string,
 		img: string,
-		type: string,
-		webURL: string,
-		telephone: string
+		telephone: string,
+		webURL: string
 	) {
 		super(name, adress, zip, city, img);
-		
 		this.type = type;
 		this.webURL = webURL;
 		this.telephone = telephone;
@@ -58,7 +56,7 @@ class RestaurantClass extends LocationClass {
 					<p class="card-text">adress: ${this.adress}</p>
 					<p class="card-text">zip: ${this.zip}</p>
 					<p class="card-text">city: ${this.city}</p>
-					<p class="card-text">telephone: ${this.city}</p>
+					<p class="card-text">telephone: ${this.telephone}</p>
 					<a href="${this.webURL}" class="card-link">Website</a>
 				</div>
 			</div>
@@ -66,7 +64,6 @@ class RestaurantClass extends LocationClass {
 	}
 }
 class EventClass extends LocationClass {
-	nameEvent: string;
 	type: string;
 	webURL: string;
 	price: string;
@@ -74,11 +71,11 @@ class EventClass extends LocationClass {
 	time: string;
 	constructor(
 		name: string,
+		type: string,
 		adress: string,
 		zip: number,
 		city: string,
 		img: string,
-		type: string,
 		webURL: string,
 		price: string,
 		date: string,
@@ -101,7 +98,6 @@ class EventClass extends LocationClass {
 					<p class="card-text">adress: ${this.adress}</p>
 					<p class="card-text">zip: ${this.zip}</p>
 					<p class="card-text">city: ${this.city}</p>
-					<p class="card-text">telephone: ${this.city}</p>
 					<a href="${this.webURL}" class="card-link">Website</a>
 				</div>
 			</div>
