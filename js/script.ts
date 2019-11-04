@@ -15,7 +15,7 @@ class LocationClass {
 	display(): void {
 		$('#locationdeck').append(`
 			<div class="card">
-  			<img src=${this.img} class="card-img-top" alt="...">
+  			<img src=${this.img} class="card-img-top img-thumbnail" alt="...">
   			<div class="card-body">
 					<h5 class="card-title">${this.name}</h5>
           <p class="card-text">adress: ${this.adress}</p>
