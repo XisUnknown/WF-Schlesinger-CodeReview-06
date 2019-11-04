@@ -49,7 +49,7 @@ class RestaurantClass extends LocationClass {
 	display(): void {
 		$('#restaurantsdeck').append(`
 			<div class="card">
-				<img src=${this.img} class="card-img-top" alt="...">
+				<img src=${this.img} class="card-img-top img-thumbnail" alt="...">
 				<div class="card-body">
 					<h3 class="card-title">${this.name}</h3>
 					<h1 class="card-text">${this.type}</h3>
@@ -91,7 +91,7 @@ class EventClass extends LocationClass {
 	display(): void {
 		$('#eventdeck').append(`
 			<div class="card">
-				<img src=${this.img} class="card-img-top" alt="...">
+				<img src=${this.img} class="card-img-top img-thumbnail" alt="...">
 				<div class="card-body">
 					<h3 class="card-title">${this.name}</h3>
 					<h1 class="card-text">${this.type}</h3>
@@ -99,6 +99,9 @@ class EventClass extends LocationClass {
 					<p class="card-text">zip: ${this.zip}</p>
 					<p class="card-text">city: ${this.city}</p>
 					<a href="${this.webURL}" class="card-link">Website</a>
+					<p class="card-text">price: ${this.price}</p>
+					<p class="card-text">date: ${this.date}</p>
+					<p class="card-text">time: ${this.time}</p>
 				</div>
 			</div>
     `);

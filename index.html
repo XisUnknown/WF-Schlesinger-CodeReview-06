@@ -31,11 +31,11 @@
     </nav>
     <div id="container" class="container"></div>
     <h1>Locations</h1>
-    <div id="locationdeck" class="card-group"></div>
+    <div id="locationdeck" class="card-deck"></div>
     <h1>Restaurants</h1>
-    <div id="restaurantsdeck" class="card-group"></div>
+    <div id="restaurantsdeck" class="card-deck"></div>
     <h1>Events</h1>
-    <div id="eventdeck" class="card-group"></div>
+    <div id="eventdeck" class="card-deck"></div>
     </div>
     <div class="input-group mb-3">
         <select class="custom-select" id="inputGroupSelect02">
@@ -115,7 +115,7 @@
     </div>
     <button type="button" class="btn btn-outline-primary" style="display: none;" id="btn">Primary</button>
     <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
 	var objArr = [];
 	objArr.push(new LocationClass("CodeFactory", "Kettenbrückengasse 23", 1050, "Wien", "./img/code1.jpg"));
 	objArr.push(new LocationClass("Htl Ottakring", "Thaliastraße 125", 1160, "Wien", "./img/HTL.png"));
@@ -125,10 +125,10 @@
 	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
 	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
 	objArr.push(new RestaurantClass("LemonLeaf","Thai","Kettenbrückengasse 23", 1050, "Wien", "./img/lemon.jpg", "+4315812308", "www.lemonleaf.at"));
-	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
-	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
-	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00","15€"));
-	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "+4319421502", "https://www.weberknecht.net/", "9.11", "22:00", "15€"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "https://www.weberknecht.net/", "15€", "12.11","22:00"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "https://www.weberknecht.net/", "15€", "12.11","22:00"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "https://www.weberknecht.net/", "15€", "12.11","22:00"));
+	objArr.push(new EventClass("Oldschool Goa Party", "Party", "Lerchenfelder Gürtel 47-49", 1090,"Wien", "./img/goa.jpg", "https://www.weberknecht.net/", "15€", "12.11","22:00"));
 	objArr.forEach(element => {
 			element.display();
 	});
